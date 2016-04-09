@@ -58,7 +58,9 @@ let minClipY = 0
 let maxClipY = WindowHeight - 1
 
 struct Vector {
-    let x, y, z: Float
+    var x: Float = 0.0
+    var y: Float = 0.0
+    var z: Float = 0.0
 }
 
 struct Line {

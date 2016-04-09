@@ -11,17 +11,17 @@ import MetalKit
 
 var gameViewController: GameViewController!
 
+private let numStars = 512
+private let numTies = 64
+private let numExplosions = 32
+private let numTieVertices = 10
+private let numTieEdges = 8
+
 class GameViewController: NSViewController, MTKViewDelegate {
     
     var renderer: SoftRenderer!
     
     var isPlaying = false
-    
-    let numStars = 512
-    let numTies = 32
-    let numExplosions = 32
-    let numTieVertices = 10
-    let numTieEdges = 8
     
     let crossVelocity = 4
     
@@ -47,19 +47,19 @@ class GameViewController: NSViewController, MTKViewDelegate {
     // Explosion structure
     struct Explosion {
         
-        var state: Int
-        var counter: Int
-        var color: float4
-        var edgeStarts: [Float]
-        var edgeEnds: [Float]
-        var velocities: [Vector]
+        var state = 0
+        var counter = 0
+        var color = float4(1.0, 1.0, 1.0, 1.0)
+        var edgeStarts = Array<Vector>(count: numTieEdges, repeatedValue: Vector())
+        var edgeEnds = Array<Vector>(count: numTieEdges, repeatedValue: Vector())
+        var velocities = Array<Vector>(count: numTieEdges, repeatedValue: Vector())
     }
     
     var tieVerticesList = [Vertex]()
     var tieShape = [Line]()
     var ties = [Tie]()
-    var starField =  [Vertex]()
-    var explosions = [Explosion]()
+    var starField =  Array<Vertex>(count: numStars, repeatedValue: Vertex())
+    var explosions = Array<Explosion>(count: numExplosions, repeatedValue: Explosion())
     
     var misses = 0
     var hits = 0
@@ -87,13 +87,13 @@ class GameViewController: NSViewController, MTKViewDelegate {
     
     func initStarField() {
         
-        for _ in 0..<500 {
+        for index in 0..<500 {
             
             let x = Float(-WindowWidth / 2 + Int(drand48f() * Float(WindowWidth)))
             let y = Float(-WindowHeight / 2 + Int(drand48f() * Float(WindowHeight)))
             let z = NearZ + Float(arc4random() % UInt32(FarZ - NearZ))
             
-            starField.append(Vertex(x: x, y: y, z: z, r: 1.0, g: 1.0, b: 1.0, a: 1.0, size: 2.0))
+            starField[index] = Vertex(x: x, y: y, z: z, r: 1.0, g: 1.0, b: 1.0, a: 1.0, size: 2.0)
         }
     }
     
@@ -162,7 +162,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
         
         let vx = Float(-4 + randomi(8))
         let vy = Float(-4 + randomi(8))
-        let vz = Float(-4 - randomi(64))
+        let vz = Float(-4 - randomi(32))
         
         let tie = Tie(state: 1, x: x, y: y, z: z, vx: vx, vy: vy, vz: vz)
         
@@ -208,9 +208,77 @@ class GameViewController: NSViewController, MTKViewDelegate {
         }
     }
     
-    func startExplosion(index: Int) {
+    func updateExplosions() {
         
+        // Traverse explosion structure array
+        for index in 0..<numExplosions {
+            
+            // Check if explosion structure is activate
+            if (explosions[index].state == 0) {
+                continue
+            }
+            
+            for edge in 0..<numTieEdges {
+                
+                // Explosion occur, update start/end point for
+                // line segment
+                explosions[index].edgeStarts[edge].x += explosions[index].velocities[edge].x
+                explosions[index].edgeStarts[edge].y += explosions[index].velocities[edge].y
+                explosions[index].edgeStarts[edge].z += explosions[index].velocities[edge].z
+                
+                explosions[index].edgeEnds[edge].x += explosions[index].velocities[edge].x
+                explosions[index].edgeEnds[edge].y += explosions[index].velocities[edge].y
+                explosions[index].edgeEnds[edge].z += explosions[index].velocities[edge].z
+            }
+            
+            // Test for terminatation of explosion?
+            explosions[index].counter += 1
+            if (explosions[index].counter > 100) {
+                
+                explosions[index].state = 0
+                explosions[index].counter = 0
+            }
+        }
+    }
+    
+    func startExplosion(tieIndex: Int) {
         
+        // This starts an explosion based on the sent tie fighter
+        
+        for index in 0..<numExplosions {
+            
+            // First hunt and see if an explosion is free
+            if (explosions[index].state == 0) {
+                
+                // Start this explosion up using the properties
+                // If the tie fighter index sent
+                explosions[index].state = 1     // Enable state of explosion
+                explosions[index].counter = 0   // Reset counter for explosion
+                
+                // Set color of explosion
+                explosions[index].color = float4(1.0, 1.0, 1.0, 1.0)
+                
+                // Make copy of edge list, so we can blow it up
+                for edge in 0..<numTieEdges {
+                    
+                    // Start point of edge
+                    explosions[index].edgeStarts[edge].x = ties[tieIndex].x + tieVerticesList[tieShape[edge].v1].x
+                    explosions[index].edgeStarts[edge].y = ties[tieIndex].y + tieVerticesList[tieShape[edge].v1].y
+                    explosions[index].edgeStarts[edge].z = ties[tieIndex].z + tieVerticesList[tieShape[edge].v1].z
+                    
+                    explosions[index].edgeEnds[edge].x = ties[tieIndex].x + tieVerticesList[tieShape[edge].v2].x
+                    explosions[index].edgeEnds[edge].y = ties[tieIndex].y + tieVerticesList[tieShape[edge].v2].y
+                    explosions[index].edgeEnds[edge].z = ties[tieIndex].z + tieVerticesList[tieShape[edge].v2].z
+                
+                    // Compute trajectory vector for edges
+                    explosions[index].velocities[edge].x = ties[tieIndex].vx - Float(8 + random() % 16)
+                    explosions[index].velocities[edge].y = ties[tieIndex].vy - Float(8 + random() % 16)
+                    explosions[index].velocities[edge].z = ties[tieIndex].vz - Float(-3 + random() % 4)
+                }
+                
+                return
+            }
+        }
     }
     
     func drawTies() {
@@ -294,7 +362,43 @@ class GameViewController: NSViewController, MTKViewDelegate {
     
     func drawExplosions() {
         
-        
+        // Loop through all the explosions and render them
+        for index in 0..<numExplosions {
+            
+            // Test if this explosion is active?
+            if (explosions[index].state == 0) {
+                continue
+            }
+            
+            // Render this explosion
+            // Each explosion is made of a number of edges
+            for edge in 0..<numTieEdges {
+                
+                var endPointPerspective1 = Vertex()
+                var endPointPerspective2 = Vertex()
+                
+                // Test if edge beyond near clipping plane
+                if (explosions[index].edgeStarts[edge].z < NearZ &&
+                    explosions[index].edgeEnds[edge].z < NearZ) {
+                    continue
+                }
+                
+                // Setp 1: Perspective transform each end point
+                endPointPerspective1.x = ViewDistance * explosions[index].edgeStarts[edge].x / explosions[index].edgeStarts[edge].z
+                endPointPerspective1.y = ViewDistance * explosions[index].edgeStarts[edge].y / explosions[index].edgeStarts[edge].z
+                
+                endPointPerspective2.x = ViewDistance * explosions[index].edgeEnds[edge].x / explosions[index].edgeEnds[edge].z
+                endPointPerspective2.y = ViewDistance * explosions[index].edgeEnds[edge].y / explosions[index].edgeEnds[edge].z
+                
+                // Step 2: Compute screen coordinates
+                let endPointScreenX1 = WindowWidth / 2 + Int(endPointPerspective1.x)
+                let endPointScreenY1 = WindowHeight / 2 - Int(endPointPerspective1.y)
+                let endPointScreenX2 = WindowWidth / 2 + Int(endPointPerspective2.x)
+                let endPointScreenY2 = WindowHeight / 2 - Int(endPointPerspective2.y)
+                
+                renderer.drawClipLine(endPointScreenX1, startY: endPointScreenY1, endX: endPointScreenX2, endY: endPointScreenY2, color: White)
+            }
+        }
     }
     
     func drawCrossHair() {
@@ -422,6 +526,8 @@ class GameViewController: NSViewController, MTKViewDelegate {
         
         updateCrossHair()
         
+        updateExplosions()
+        
         renderer.update(0)
     }
     
@@ -431,6 +537,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
         drawTies()
         drawCrossHair()
         drawLaserBeam()
+        drawExplosions()
     }
 
     func drawInMTKView(view: MTKView) {
