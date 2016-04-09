@@ -2,7 +2,7 @@
 //  GameViewController.swift
 //  SoftRenderer
 //
-//  Created by Princerin on 4/2/16.
+//  Created by Princerin on 4/9/16.
 //  Copyright (c) 2016 Princerin. All rights reserved.
 //
 
@@ -34,8 +34,8 @@ class GameViewController: NSViewController, MTKViewDelegate {
     var targetScreenX = WindowWidth / 2
     var targetScreenY = WindowHeight / 2
     
-    let cannonState = 0
-    let cannonCount = 0
+    var cannonState = 0
+    var cannonCount = 0
     
     // Ship structure
     struct Tie {
@@ -67,7 +67,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
     
     var isKeyDown = false
     var direction = Direction.None
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -76,7 +76,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
         
         // Play background music
         AudioPlayer.open("bg", ext: "mp3")
-//        AudioPlayer.play("bg")
+        //        AudioPlayer.play("bg")
         
         AudioPlayer.open("shocker", ext: "mp3")
         
@@ -97,7 +97,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
         }
     }
     
-    func moveStarField() {
+    func updateStarField() {
         
         for i in 0..<500 {
             starField[i].z -= 1
@@ -184,7 +184,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
         }
     }
     
-    func  processTies() {
+    func  updateTies() {
         
         for index in 0..<numTies {
             
@@ -232,7 +232,7 @@ class GameViewController: NSViewController, MTKViewDelegate {
             let colorFactor = ties[index].z / FarZ * 4
             
             for edge in 0..<numTieEdges {
-            
+                
                 // Endpoints
                 var endPointPerspective1 = Vertex()
                 var endPointPerspective2 = Vertex()
@@ -292,6 +292,11 @@ class GameViewController: NSViewController, MTKViewDelegate {
         }
     }
     
+    func drawExplosions() {
+        
+        
+    }
+    
     func drawCrossHair() {
         
         // Compute corsshair screen coordinate
@@ -305,6 +310,97 @@ class GameViewController: NSViewController, MTKViewDelegate {
         renderer.drawClipLine(crossScreenX + 16, startY: crossScreenY - 16, endX: crossScreenX + 16, endY: crossScreenY + 16, color: Red)
     }
     
+    func drawLaserBeam() {
+        
+        if (cannonState == 1) {
+            
+            // Right laser
+            if (random() % 2 == 1) {
+                renderer.drawClipLine(WindowWidth - 1, startY: WindowHeight - 1, endX: -4 + random() % 8 + targetScreenX, endY: -4 + random() % 8 + targetScreenY, color: White)
+            }
+                
+                // Left laser
+            else {
+                renderer.drawClipLine(0, startY: WindowHeight - 1, endX: -4 + random() % 8 + targetScreenX, endY: -4 + random() % 8 + targetScreenY, color: White)
+            }
+        }
+    }
+    
+    func updateCrossHair() {
+        
+        if (isKeyDown) {
+            
+            switch direction {
+                
+            case Direction.Up:
+                
+                crossY += crossVelocity
+                
+                if (crossY > WindowHeight / 2) {
+                    crossY = WindowHeight / 2
+                }
+                
+                break
+                
+            case Direction.Down:
+                
+                crossY -= crossVelocity
+                
+                if (crossY < -WindowHeight / 2) {
+                    crossY = WindowHeight / 2
+                }
+                
+                break
+                
+            case Direction.Left:
+                
+                crossX -= crossVelocity
+                
+                if (crossX < -WindowWidth / 2) {
+                    crossY = -WindowWidth / 2
+                }
+                
+                break
+                
+            case Direction.Right:
+                
+                crossX += crossVelocity
+                
+                if (crossX > WindowWidth / 2) {
+                    crossX = WindowWidth / 2
+                }
+                
+                break
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func updateCannonFire() {
+        
+        // Fire stage
+        if (cannonState == 1) {
+            
+            cannonCount += 1
+            if (cannonCount > 15) {
+                
+                cannonState = 2
+            }
+        }
+        
+        // Cooldown stage
+        if (cannonState == 2) {
+            
+            cannonCount += 1
+            if (cannonCount > 20) {
+                
+                cannonState = 0
+            }
+        }
+    }
+
     func loadAssets() {
         
         initTieVerticesList()
@@ -317,26 +413,31 @@ class GameViewController: NSViewController, MTKViewDelegate {
     
     func update() {
         
-        moveStarField()
-        processTies()
+        updateStarField()
+        updateTies()
+        updateCannonFire()
         
         targetScreenX = crossScreenX
         targetScreenY = crossScreenY
+        
+        updateCrossHair()
         
         renderer.update(0)
     }
     
     func render() {
+        
         drawStarField()
         drawTies()
         drawCrossHair()
+        drawLaserBeam()
     }
-    
+
     func drawInMTKView(view: MTKView) {
         
-        self.update()
+        update()
         
-        self.render()
+        render()
         
         renderer.present()
     }
@@ -347,9 +448,20 @@ class GameViewController: NSViewController, MTKViewDelegate {
     override func keyDown(theEvent: NSEvent) {
         
         switch theEvent.keyCode {
+            
         case Key_Space:
             
-            AudioPlayer.play("shocker")
+            if (cannonState == 0) {
+                
+                cannonState = 1
+                cannonCount = 0
+                
+                targetScreenX = crossScreenX
+                targetScreenY = crossScreenY
+                
+                AudioPlayer.play("shocker")
+            }
+            
             break
             
         case Key_Up:
@@ -357,12 +469,6 @@ class GameViewController: NSViewController, MTKViewDelegate {
             isKeyDown = true
             
             direction = Direction.Up
-            
-            crossY += crossVelocity
-            
-            if (crossY > WindowHeight / 2) {
-                crossY = WindowHeight / 2
-            }
             
             break
             
@@ -374,10 +480,6 @@ class GameViewController: NSViewController, MTKViewDelegate {
             
             crossY -= crossVelocity
             
-            if (crossY < -WindowHeight / 2) {
-                crossY = -WindowHeight / 2
-            }
-            
             break
             
         case Key_Left:
@@ -387,10 +489,6 @@ class GameViewController: NSViewController, MTKViewDelegate {
             direction = Direction.Left
             
             crossX -= crossVelocity
-            
-            if (crossX < -WindowWidth / 2) {
-                crossY = -WindowWidth / 2
-            }
             
             break
             
@@ -402,10 +500,6 @@ class GameViewController: NSViewController, MTKViewDelegate {
             
             crossX += crossVelocity
             
-            if (crossX > WindowWidth / 2) {
-                crossX = WindowWidth / 2
-            }
-            
             break
             
         default:
@@ -415,11 +509,14 @@ class GameViewController: NSViewController, MTKViewDelegate {
     
     override func keyUp(theEvent: NSEvent) {
         
-        switch theEvent.keyCode {
+        isKeyDown = false
         
-        case Key_Up:
+        switch theEvent.keyCode {
             
-            isKeyDown = false
+        case Key_Space:
+            
+            cannonState = 0
+            
             break
         default:
             break

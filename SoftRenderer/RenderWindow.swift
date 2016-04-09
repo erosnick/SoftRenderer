@@ -10,8 +10,10 @@ import Foundation
 
 class RenderWindow: NSWindow {
     override func keyDown(theEvent: NSEvent) {
-        
         gameViewController.keyDown(theEvent)
+    }
+    
+    override func keyUp(theEvent: NSEvent) {
         gameViewController.keyUp(theEvent)
     }
 }

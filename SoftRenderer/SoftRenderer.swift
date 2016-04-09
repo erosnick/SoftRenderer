@@ -63,7 +63,7 @@ class SoftRenderer {
                 verticesArray.append(vertex)
             }
         }
-
+        
         for vertex in verticesArray {
             verticesData += vertex.vertexBuffer()
         }
@@ -106,7 +106,7 @@ class SoftRenderer {
     }
     
     func present() {
-    
+        
         dispatch_semaphore_wait(avaliableResourceSemphore, DISPATCH_TIME_FOREVER)
         
         // create a commandBuffer
@@ -116,25 +116,25 @@ class SoftRenderer {
         commandBuffer.addCompletedHandler{(commandBuffer) -> Void in
             dispatch_semaphore_signal(self.avaliableResourceSemphore)
         }
-    
+        
         let renderPassDescriptor = view.currentRenderPassDescriptor!
         let drawable = view.currentDrawable!
         
         renderPassDescriptor.colorAttachments[0].clearColor = White
-    
+        
         let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
         renderEncoder.label = "render encoder"
-    
+        
         renderEncoder.pushDebugGroup("draw morphing triangle")
         renderEncoder.setRenderPipelineState(pipelineState)
         renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
         renderEncoder.drawPrimitives(.Point, vertexStart: 0, vertexCount: verticesCount, instanceCount: 1)
-    
+        
         renderEncoder.popDebugGroup()
         renderEncoder.endEncoding()
         
         commandBuffer.presentDrawable(drawable)
-    
+        
         commandBuffer.commit()
     }
     
@@ -153,8 +153,8 @@ class SoftRenderer {
         tempBufferPointer[offset].a = Float(color.alpha)
         
         // Crazy link
-//        let tempBufferPointer = backBufferPointer + offset
-//        memcpy(tempBufferPointer, color.toFloatArray(), color.toFloatArray().count * sizeof(Float))
+        //        let tempBufferPointer = backBufferPointer + offset
+        //        memcpy(tempBufferPointer, color.toFloatArray(), color.toFloatArray().count * sizeof(Float))
     }
     
     func drawLine(startX: Int, startY: Int, endX: Int, endY: Int, color: MTLClearColor) {
@@ -381,7 +381,6 @@ class SoftRenderer {
             
             break
             
-            
         case ClipCodeNouthWest:
             
             // North horizontal intersection
@@ -548,6 +547,6 @@ class SoftRenderer {
     }
     
     deinit{
-            dispatch_semaphore_signal(self.avaliableResourceSemphore)
+        dispatch_semaphore_signal(self.avaliableResourceSemphore)
     }
 }

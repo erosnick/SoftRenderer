@@ -7,47 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA8FCEC61CB3B2F500691710 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FCEC51CB3B2F500691710 /* MetalTexture.swift */; };
-		AA8FCEC81CB3B3DB00691710 /* wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8FCEC71CB3B3DB00691710 /* wall.jpg */; };
-		AAB5EF751CAFA571006252A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF741CAFA571006252A9 /* AppDelegate.swift */; };
-		AAB5EF771CAFA571006252A9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF761CAFA571006252A9 /* GameViewController.swift */; };
-		AAB5EF791CAFA571006252A9 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF781CAFA571006252A9 /* Shaders.metal */; };
-		AAB5EF7B1CAFA571006252A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB5EF7A1CAFA571006252A9 /* Assets.xcassets */; };
-		AAB5EF7E1CAFA571006252A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB5EF7C1CAFA571006252A9 /* MainMenu.xib */; };
-		AAB5EF861CAFAD77006252A9 /* SoftRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF851CAFAD77006252A9 /* SoftRenderer.swift */; };
-		AAB5EF8A1CAFAE3B006252A9 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF891CAFAE3B006252A9 /* Vertex.swift */; };
-		AAB5EF8C1CB02AA6006252A9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5EF8B1CB02AA6006252A9 /* Utils.swift */; };
-		AAD03E881CB3F5AB006F5D2E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD03E871CB3F5AB006F5D2E /* GameView.swift */; };
-		AAFF58181CB64BBC00E8DDF7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFF58171CB64BBC00E8DDF7 /* AudioPlayer.swift */; };
-		AAFF58201CB6550600E8DDF7 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAFF581D1CB6550600E8DDF7 /* bg.mp3 */; };
-		AAFF58211CB6550600E8DDF7 /* explosion1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAFF581E1CB6550600E8DDF7 /* explosion1.mp3 */; };
-		AAFF58221CB6550600E8DDF7 /* shocker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAFF581F1CB6550600E8DDF7 /* shocker.mp3 */; };
-		AAFF58241CB6626C00E8DDF7 /* RenderWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFF58231CB6626C00E8DDF7 /* RenderWindow.swift */; };
+		AA05F95A1CB8FA640033599A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F9591CB8FA640033599A /* AppDelegate.swift */; };
+		AA05F95C1CB8FA640033599A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F95B1CB8FA640033599A /* GameViewController.swift */; };
+		AA05F95E1CB8FA640033599A /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AA05F95D1CB8FA640033599A /* Shaders.metal */; };
+		AA05F9601CB8FA640033599A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA05F95F1CB8FA640033599A /* Assets.xcassets */; };
+		AA05F9631CB8FA640033599A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA05F9611CB8FA640033599A /* MainMenu.xib */; };
+		AA05F96B1CB8FA920033599A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F96A1CB8FA920033599A /* Utils.swift */; };
+		AA05F96D1CB8FA9D0033599A /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F96C1CB8FA9D0033599A /* Vertex.swift */; };
+		AA05F9761CB8FAB10033599A /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F96E1CB8FAB10033599A /* AudioPlayer.swift */; };
+		AA05F9771CB8FAB10033599A /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA05F96F1CB8FAB10033599A /* bg.mp3 */; };
+		AA05F9781CB8FAB10033599A /* explosion1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA05F9701CB8FAB10033599A /* explosion1.mp3 */; };
+		AA05F9791CB8FAB10033599A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F9711CB8FAB10033599A /* GameView.swift */; };
+		AA05F97A1CB8FAB10033599A /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F9721CB8FAB10033599A /* MetalTexture.swift */; };
+		AA05F97B1CB8FAB10033599A /* RenderWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F9731CB8FAB10033599A /* RenderWindow.swift */; };
+		AA05F97C1CB8FAB10033599A /* shocker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA05F9741CB8FAB10033599A /* shocker.mp3 */; };
+		AA05F97D1CB8FAB10033599A /* wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA05F9751CB8FAB10033599A /* wall.jpg */; };
+		AA05F97F1CB8FACE0033599A /* SoftRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05F97E1CB8FACE0033599A /* SoftRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA8FCEC51CB3B2F500691710 /* MetalTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
-		AA8FCEC71CB3B3DB00691710 /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
-		AAB5EF711CAFA571006252A9 /* SoftRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoftRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB5EF741CAFA571006252A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAB5EF761CAFA571006252A9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		AAB5EF781CAFA571006252A9 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		AAB5EF7A1CAFA571006252A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AAB5EF7D1CAFA571006252A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AAB5EF7F1CAFA571006252A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB5EF851CAFAD77006252A9 /* SoftRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftRenderer.swift; sourceTree = "<group>"; };
-		AAB5EF891CAFAE3B006252A9 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
-		AAB5EF8B1CB02AA6006252A9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		AAD03E871CB3F5AB006F5D2E /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		AAFF58171CB64BBC00E8DDF7 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		AAFF581D1CB6550600E8DDF7 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
-		AAFF581E1CB6550600E8DDF7 /* explosion1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion1.mp3; sourceTree = "<group>"; };
-		AAFF581F1CB6550600E8DDF7 /* shocker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shocker.mp3; sourceTree = "<group>"; };
-		AAFF58231CB6626C00E8DDF7 /* RenderWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderWindow.swift; sourceTree = "<group>"; };
+		AA05F9561CB8FA640033599A /* SoftRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoftRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA05F9591CB8FA640033599A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA05F95B1CB8FA640033599A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AA05F95D1CB8FA640033599A /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		AA05F95F1CB8FA640033599A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA05F9621CB8FA640033599A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA05F9641CB8FA640033599A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA05F96A1CB8FA920033599A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AA05F96C1CB8FA9D0033599A /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		AA05F96E1CB8FAB10033599A /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		AA05F96F1CB8FAB10033599A /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
+		AA05F9701CB8FAB10033599A /* explosion1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion1.mp3; sourceTree = "<group>"; };
+		AA05F9711CB8FAB10033599A /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		AA05F9721CB8FAB10033599A /* MetalTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
+		AA05F9731CB8FAB10033599A /* RenderWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderWindow.swift; sourceTree = "<group>"; };
+		AA05F9741CB8FAB10033599A /* shocker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shocker.mp3; sourceTree = "<group>"; };
+		AA05F9751CB8FAB10033599A /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
+		AA05F97E1CB8FACE0033599A /* SoftRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AAB5EF6E1CAFA571006252A9 /* Frameworks */ = {
+		AA05F9531CB8FA640033599A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -57,42 +57,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AAB5EF681CAFA571006252A9 = {
+		AA05F94D1CB8FA640033599A = {
 			isa = PBXGroup;
 			children = (
-				AAB5EF731CAFA571006252A9 /* SoftRenderer */,
-				AAB5EF721CAFA571006252A9 /* Products */,
+				AA05F9581CB8FA640033599A /* SoftRenderer */,
+				AA05F9571CB8FA640033599A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AAB5EF721CAFA571006252A9 /* Products */ = {
+		AA05F9571CB8FA640033599A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAB5EF711CAFA571006252A9 /* SoftRenderer.app */,
+				AA05F9561CB8FA640033599A /* SoftRenderer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAB5EF731CAFA571006252A9 /* SoftRenderer */ = {
+		AA05F9581CB8FA640033599A /* SoftRenderer */ = {
 			isa = PBXGroup;
 			children = (
-				AAB5EF741CAFA571006252A9 /* AppDelegate.swift */,
-				AAB5EF7A1CAFA571006252A9 /* Assets.xcassets */,
-				AAFF58171CB64BBC00E8DDF7 /* AudioPlayer.swift */,
-				AAFF581D1CB6550600E8DDF7 /* bg.mp3 */,
-				AAFF581E1CB6550600E8DDF7 /* explosion1.mp3 */,
-				AAD03E871CB3F5AB006F5D2E /* GameView.swift */,
-				AAB5EF761CAFA571006252A9 /* GameViewController.swift */,
-				AAB5EF7F1CAFA571006252A9 /* Info.plist */,
-				AAB5EF7C1CAFA571006252A9 /* MainMenu.xib */,
-				AA8FCEC51CB3B2F500691710 /* MetalTexture.swift */,
-				AAFF58231CB6626C00E8DDF7 /* RenderWindow.swift */,
-				AAB5EF781CAFA571006252A9 /* Shaders.metal */,
-				AAFF581F1CB6550600E8DDF7 /* shocker.mp3 */,
-				AAB5EF851CAFAD77006252A9 /* SoftRenderer.swift */,
-				AAB5EF8B1CB02AA6006252A9 /* Utils.swift */,
-				AAB5EF891CAFAE3B006252A9 /* Vertex.swift */,
-				AA8FCEC71CB3B3DB00691710 /* wall.jpg */,
+				AA05F9591CB8FA640033599A /* AppDelegate.swift */,
+				AA05F95F1CB8FA640033599A /* Assets.xcassets */,
+				AA05F96E1CB8FAB10033599A /* AudioPlayer.swift */,
+				AA05F96F1CB8FAB10033599A /* bg.mp3 */,
+				AA05F9701CB8FAB10033599A /* explosion1.mp3 */,
+				AA05F9711CB8FAB10033599A /* GameView.swift */,
+				AA05F95B1CB8FA640033599A /* GameViewController.swift */,
+				AA05F9641CB8FA640033599A /* Info.plist */,
+				AA05F9611CB8FA640033599A /* MainMenu.xib */,
+				AA05F9721CB8FAB10033599A /* MetalTexture.swift */,
+				AA05F9731CB8FAB10033599A /* RenderWindow.swift */,
+				AA05F95D1CB8FA640033599A /* Shaders.metal */,
+				AA05F9741CB8FAB10033599A /* shocker.mp3 */,
+				AA05F97E1CB8FACE0033599A /* SoftRenderer.swift */,
+				AA05F96A1CB8FA920033599A /* Utils.swift */,
+				AA05F96C1CB8FA9D0033599A /* Vertex.swift */,
+				AA05F9751CB8FAB10033599A /* wall.jpg */,
 			);
 			path = SoftRenderer;
 			sourceTree = "<group>";
@@ -100,13 +100,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAB5EF701CAFA571006252A9 /* SoftRenderer */ = {
+		AA05F9551CB8FA640033599A /* SoftRenderer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB5EF821CAFA571006252A9 /* Build configuration list for PBXNativeTarget "SoftRenderer" */;
+			buildConfigurationList = AA05F9671CB8FA640033599A /* Build configuration list for PBXNativeTarget "SoftRenderer" */;
 			buildPhases = (
-				AAB5EF6D1CAFA571006252A9 /* Sources */,
-				AAB5EF6E1CAFA571006252A9 /* Frameworks */,
-				AAB5EF6F1CAFA571006252A9 /* Resources */,
+				AA05F9521CB8FA640033599A /* Sources */,
+				AA05F9531CB8FA640033599A /* Frameworks */,
+				AA05F9541CB8FA640033599A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -114,25 +114,25 @@
 			);
 			name = SoftRenderer;
 			productName = SoftRenderer;
-			productReference = AAB5EF711CAFA571006252A9 /* SoftRenderer.app */;
+			productReference = AA05F9561CB8FA640033599A /* SoftRenderer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AAB5EF691CAFA571006252A9 /* Project object */ = {
+		AA05F94E1CB8FA640033599A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Princerin;
 				TargetAttributes = {
-					AAB5EF701CAFA571006252A9 = {
+					AA05F9551CB8FA640033599A = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
-			buildConfigurationList = AAB5EF6C1CAFA571006252A9 /* Build configuration list for PBXProject "SoftRenderer" */;
+			buildConfigurationList = AA05F9511CB8FA640033599A /* Build configuration list for PBXProject "SoftRenderer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -140,57 +140,57 @@
 				en,
 				Base,
 			);
-			mainGroup = AAB5EF681CAFA571006252A9;
-			productRefGroup = AAB5EF721CAFA571006252A9 /* Products */;
+			mainGroup = AA05F94D1CB8FA640033599A;
+			productRefGroup = AA05F9571CB8FA640033599A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAB5EF701CAFA571006252A9 /* SoftRenderer */,
+				AA05F9551CB8FA640033599A /* SoftRenderer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AAB5EF6F1CAFA571006252A9 /* Resources */ = {
+		AA05F9541CB8FA640033599A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB5EF7B1CAFA571006252A9 /* Assets.xcassets in Resources */,
-				AAFF58201CB6550600E8DDF7 /* bg.mp3 in Resources */,
-				AA8FCEC81CB3B3DB00691710 /* wall.jpg in Resources */,
-				AAB5EF7E1CAFA571006252A9 /* MainMenu.xib in Resources */,
-				AAFF58221CB6550600E8DDF7 /* shocker.mp3 in Resources */,
-				AAFF58211CB6550600E8DDF7 /* explosion1.mp3 in Resources */,
+				AA05F9601CB8FA640033599A /* Assets.xcassets in Resources */,
+				AA05F97D1CB8FAB10033599A /* wall.jpg in Resources */,
+				AA05F9631CB8FA640033599A /* MainMenu.xib in Resources */,
+				AA05F9781CB8FAB10033599A /* explosion1.mp3 in Resources */,
+				AA05F97C1CB8FAB10033599A /* shocker.mp3 in Resources */,
+				AA05F9771CB8FAB10033599A /* bg.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AAB5EF6D1CAFA571006252A9 /* Sources */ = {
+		AA05F9521CB8FA640033599A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8FCEC61CB3B2F500691710 /* MetalTexture.swift in Sources */,
-				AAB5EF861CAFAD77006252A9 /* SoftRenderer.swift in Sources */,
-				AAFF58181CB64BBC00E8DDF7 /* AudioPlayer.swift in Sources */,
-				AAB5EF791CAFA571006252A9 /* Shaders.metal in Sources */,
-				AAB5EF771CAFA571006252A9 /* GameViewController.swift in Sources */,
-				AAB5EF751CAFA571006252A9 /* AppDelegate.swift in Sources */,
-				AAB5EF8A1CAFAE3B006252A9 /* Vertex.swift in Sources */,
-				AAD03E881CB3F5AB006F5D2E /* GameView.swift in Sources */,
-				AAB5EF8C1CB02AA6006252A9 /* Utils.swift in Sources */,
-				AAFF58241CB6626C00E8DDF7 /* RenderWindow.swift in Sources */,
+				AA05F97F1CB8FACE0033599A /* SoftRenderer.swift in Sources */,
+				AA05F95E1CB8FA640033599A /* Shaders.metal in Sources */,
+				AA05F97A1CB8FAB10033599A /* MetalTexture.swift in Sources */,
+				AA05F95C1CB8FA640033599A /* GameViewController.swift in Sources */,
+				AA05F95A1CB8FA640033599A /* AppDelegate.swift in Sources */,
+				AA05F96D1CB8FA9D0033599A /* Vertex.swift in Sources */,
+				AA05F96B1CB8FA920033599A /* Utils.swift in Sources */,
+				AA05F97B1CB8FAB10033599A /* RenderWindow.swift in Sources */,
+				AA05F9761CB8FAB10033599A /* AudioPlayer.swift in Sources */,
+				AA05F9791CB8FAB10033599A /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AAB5EF7C1CAFA571006252A9 /* MainMenu.xib */ = {
+		AA05F9611CB8FA640033599A /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AAB5EF7D1CAFA571006252A9 /* Base */,
+				AA05F9621CB8FA640033599A /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AAB5EF801CAFA571006252A9 /* Debug */ = {
+		AA05F9651CB8FA640033599A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		AAB5EF811CAFA571006252A9 /* Release */ = {
+		AA05F9661CB8FA640033599A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,7 +280,7 @@
 			};
 			name = Release;
 		};
-		AAB5EF831CAFA571006252A9 /* Debug */ = {
+		AA05F9681CB8FA640033599A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -292,7 +292,7 @@
 			};
 			name = Debug;
 		};
-		AAB5EF841CAFA571006252A9 /* Release */ = {
+		AA05F9691CB8FA640033599A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -307,25 +307,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAB5EF6C1CAFA571006252A9 /* Build configuration list for PBXProject "SoftRenderer" */ = {
+		AA05F9511CB8FA640033599A /* Build configuration list for PBXProject "SoftRenderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAB5EF801CAFA571006252A9 /* Debug */,
-				AAB5EF811CAFA571006252A9 /* Release */,
+				AA05F9651CB8FA640033599A /* Debug */,
+				AA05F9661CB8FA640033599A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB5EF821CAFA571006252A9 /* Build configuration list for PBXNativeTarget "SoftRenderer" */ = {
+		AA05F9671CB8FA640033599A /* Build configuration list for PBXNativeTarget "SoftRenderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAB5EF831CAFA571006252A9 /* Debug */,
-				AAB5EF841CAFA571006252A9 /* Release */,
+				AA05F9681CB8FA640033599A /* Debug */,
+				AA05F9691CB8FA640033599A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AAB5EF691CAFA571006252A9 /* Project object */;
+	rootObject = AA05F94E1CB8FA640033599A /* Project object */;
 }
